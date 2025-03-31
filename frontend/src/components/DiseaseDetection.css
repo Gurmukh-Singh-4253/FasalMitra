@@ -1,0 +1,392 @@
+/* src/components/DiseaseDetection.css */
+
+body {
+  font-family: 'Garamond', serif;
+  background-color: #b0eacd;
+  overflow-x: hidden;
+}
+
+.disease-detection-container {}
+
+.main-content-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 250px;
+  flex-shrink: 0;
+  border-right: 1px solid #e0e0e0;
+  padding-right: 20px;
+  background-color: #f8f8f8;
+  height: auto;
+  position: relative;
+  opacity: 0.6;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-content {
+  padding-bottom: 20px;
+  flex-grow: 1;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+}
+
+.glass-effect {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+  z-index: 10;
+  width: 90%;
+  max-width: 600px;
+}
+
+.ball {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(144, 238, 144, 1) 0%, rgba(34, 139, 34, 1) 100%);
+  box-shadow: 0 0 40px rgba(144, 238, 144, 0.7);
+  filter: blur(8px);
+  animation: moveInCircle 10s linear infinite, changeColor 20s infinite alternate ease-in-out;
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(25px, 25px) rotate(90deg);
+  }
+  50% {
+    transform: translate(50px, 0) rotate(180deg);
+  }
+  75% {
+    transform: translate(25px, -25px) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    background: radial-gradient(circle, rgba(144, 238, 144, 0.2) 0%, rgba(34, 139, 34, 0.2) 100%);
+  }
+  25% {
+    background: radial-gradient(circle, rgba(144, 238, 144, 0.5) 0%, rgba(34, 139, 34, 0.5) 100%);
+  }
+  50% {
+    background: radial-gradient(circle, rgba(144, 238, 144, 0.8) 0%, rgba(34, 139, 34, 0.8) 100%);
+  }
+  75% {
+    background: radial-gradient(circle, rgba(144, 238, 144, 1) 0%, rgba(34, 139, 34, 1) 100%);
+  }
+  100% {
+    background: radial-gradient(circle, rgba(144, 238, 144, 0.2) 0%, rgba(34, 139, 34, 0.2) 100%);
+  }
+}
+
+.hover-highlight:hover {
+  background-color: #32cd32;
+  color: white;
+}
+
+.scrollable {
+  max-height: 60vh;
+  overflow: hidden;
+}
+
+.btn-emerald {
+  background-color: #006400;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  display: none;
+}
+
+.dashboard-buttons {
+  list-style: none;
+  padding: 0;
+  margin: 0 10px;
+}
+
+.dashboard-buttons li {
+  margin-bottom: 10px;
+}
+
+.dashboard-button {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 0;
+}
+
+.dashboard-button:hover {
+  background-color: #e0e0e0;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #e0e0e0;
+}
+
+.language-selector {
+  margin-top: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: static;
+  width: auto;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.language-selector label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.language-selector select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.feedback-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.chatbot-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.chatbot-image-wrapper {
+  position: relative; /* Needed for absolute positioning of the image */
+  width: 150px; /* Adjust as needed */
+  height: 150px; /* Adjust as needed */
+  border-radius: 10px; /* Rounded corners for the glass effect */
+  overflow: hidden; /* Clip the image to the rounded corners */
+}
+
+.chatbot-image-glass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2); /* Adjust transparency as needed */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px); /* Adjust blur as needed */
+  border-radius: inherit; /* Inherit rounded corners from the wrapper */
+  z-index: 1;
+}
+
+.chatbot-image {
+  position: relative; /* Needed to be above the glass effect */
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .main-content-wrapper {
+    flex-direction: row;
+  }
+  .dashboard {
+    width: 250px;
+    height: 100vh;
+    padding-right: 20px;
+    border-right: 1px solid #e0e0e0;
+  }
+  .main-content {
+    padding-left: 20px;
+  }
+  .ball {
+    width: 160px;
+    height: 160px;
+    filter: blur(15px);
+  }
+  .glass-effect {
+    width: 50%;
+  }
+  .scrollable {
+    max-height: 80vh;
+  }
+  .chatbot-image {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.fertiliser-form-container {
+  padding: 20px;
+}
+
+.fertiliser-form-group {
+  margin-bottom: 20px;
+}
+
+.fertiliser-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.fertiliser-form-input,
+.fertiliser-form-select {
+  width: calc(100% - 12px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.fertiliser-form-submit {
+  background-color: #006400;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.fertiliser-results-section {
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  display: none;
+}
+
+.fertiliser-results-section h3 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.fertiliser-results-section p {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.fertiliser-results-section.show {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .fertiliser-form-group {
+    display: flex;
+    align-items: center;
+  }
+  .fertiliser-form-group label {
+    width: 150px;
+    margin-right: 10px;
+  }
+  .fertiliser-form-input,
+  .fertiliser-form-select {
+    width: calc(100% - 160px);
+  }
+}
+
+#disease-detection-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  width: 90%;
+  max-width: 700px;
+  overflow: hidden;
+}
+
+#disease-detection-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+
+#disease-detection-content label[for="image-upload"] {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #006400;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#disease-detection-content input[type="file"] {
+  display: none;
+}
+
+#disease-detection-content .file-name {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+}
+
+#disease-detection-content button[type="submit"] {
+  padding: 12px 25px;
+  background-color: #32cd32;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  #disease-detection-content h2 {
+    font-size: 1.8rem;
+  }
+}
